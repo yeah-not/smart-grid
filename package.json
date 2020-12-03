@@ -1,0 +1,20 @@
+{
+  "name": "smart-grid",
+  "version": "1.0.0",
+  "description": "Тестовый проект на Smart Grid",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeah-not/smart-grid.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeah-not/smart-grid/issues"
+  },
+  "homepage": "https://github.com/yeah-not/smart-grid#readme"
+}
