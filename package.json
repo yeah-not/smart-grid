@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/yeah-not/smart-grid/issues"
   },
-  "homepage": "https://github.com/yeah-not/smart-grid#readme"
+  "homepage": "https://github.com/yeah-not/smart-grid#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
