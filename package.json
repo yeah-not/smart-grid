@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/yeah-not/smart-grid#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
-  }
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-less": "^4.0.1"
+  },
+  "dependencies": {}
 }
