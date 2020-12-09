@@ -8,6 +8,8 @@ const gcmq = require('gulp-group-css-media-queries');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 
+const browserSync = require('browser-sync').create();
+
 function clean() {
   return del('./build');
 }
@@ -23,7 +25,8 @@ function styles() {
          }))
          .pipe(cleanCSS({level: 2}))
          .pipe(sourcemaps.write())
-         .pipe(gulp.dest('./build/css'));
+         .pipe(gulp.dest('./build/css'))
+         .pipe(browserSync.stream());
 }
 
 function images() {
@@ -33,9 +36,22 @@ function images() {
 
 function html() {
   return gulp.src('./src/*.html')
-         .pipe(gulp.dest('./build'));
+         .pipe(gulp.dest('./build'))
+         .pipe(browserSync.stream());
+}
+
+function watch() {
+  browserSync.init({
+      server: {
+          baseDir: "./build"
+      }
+  });
+
+  gulp.watch('./src/less/styles.less', styles);
+  gulp.watch('./src/*.html', html);
 }
 
 let build = series(clean, parallel(styles, images, html));
 
 gulp.task('build', build);
+gulp.task('watch', series(build, watch));
