@@ -53,33 +53,13 @@ function watch() {
 
   gulp.watch('./src/less/styles.less', styles);
   gulp.watch('./src/*.html', html);
+  gulp.watch('./smartgrid.js', series(grid, styles));
 }
 
 function grid(done) {
-  const settings = {
-    columns: 24,
-    offset: '10px',
-    // mobileFirst: true,
-    container: {
-        maxWidth: '950px',
-        fields: '30px'
-    },
-    breakPoints: {
-      md: {
-        width: "920px",
-        fields: "15px"
-      },
-      sm: {
-        width: "720px"
-      },
-      xs: {
-        width: "576px"
-      },
-      xxs: {
-        width: "420px"
-      }
-    }
-  };
+  delete require.cache[require.resolve('./smartgrid.js')];
+
+  let settings = require('./smartgrid.js');
 
   smartgrid('./src/less', settings);
   done();
@@ -87,6 +67,5 @@ function grid(done) {
 
 let build = series(clean, parallel(styles, images, html));
 
-gulp.task('build', build);
-gulp.task('watch', series(build, watch));
-gulp.task('grid', grid);
+gulp.task('build', series(grid, build));
+gulp.task('watch', series('build', watch));
