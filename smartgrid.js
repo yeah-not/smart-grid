@@ -1,6 +1,6 @@
 module.exports = {
-  columns: 24,
-  offset: '10px',
+  columns: 12,
+  offset: '30px',
   // mobileFirst: true,
   container: {
       maxWidth: '950px',
