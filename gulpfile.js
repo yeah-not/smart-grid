@@ -19,7 +19,7 @@ function clean() {
 }
 
 function styles() {
-  return gulp.src('./src/less/+(styles|styles-ie9).less')
+  return gulp.src('./src/less/+(styles|styles-ie9|styles-percent).less')
          .pipe(gulpif(isDev, sourcemaps.init()))
          .pipe(less())
          .pipe(gcmq())
@@ -60,8 +60,12 @@ function grid(done) {
   delete require.cache[require.resolve('./smartgrid.js')];
 
   let settings = require('./smartgrid.js');
-
   smartgrid('./src/less', settings);
+
+  settings.offset = '3.1%';
+  settings.filename = 'smart-grid-percent';
+  smartgrid('./src/less', settings);
+
   done();
 }
 

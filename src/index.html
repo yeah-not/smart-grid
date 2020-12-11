@@ -209,4 +209,13 @@
     </div>
   </footer>
 </body>
+<script>
+    var div = document.createElement('div');
+    div.style.cssText = 'width:calc(10px)';
+
+    if(!(div.style.length > 0)){
+        var link = document.querySelector('link');
+        link.setAttribute('href', 'css/styles-percent.css')
+    }
+</script>
 </html>
