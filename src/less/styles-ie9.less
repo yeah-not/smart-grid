@@ -1,0 +1,78 @@
+@import "smart-grid.less";
+
+.degubGrid > div > div {
+  .row-float();
+
+  > div {
+    .col-float();
+  }
+}
+
+.profitItems {
+  .row-ib();
+  font-size: 0;
+  text-align: center;
+}
+
+.profitItem {
+  .col-ib();
+  font-size: 1rem;
+}
+
+.humans {
+  .items {
+    .row-ib();
+    text-align: center;
+    font-size: 0;
+
+    .item {
+      .col-ib();
+      font-size: 1rem;
+    }
+  }
+}
+
+.portfolio {
+  .items {
+    .row-ib();
+    font-size: 0;
+    text-align: center;
+
+    .item {
+      .col-ib();
+      .size(3);
+      .size-sm(5);
+      .size-xs(9);
+      .size-xxs(10);
+      font-size: 1rem;
+    }
+  }
+}
+
+.some {
+  .items {
+    .row-float();
+
+    .item{
+      .col-float();
+    }
+  }
+}
+
+footer {
+  .items {
+    .row-float();
+
+    .item {
+      .col-float();
+
+      .row {
+        .row-float();
+
+        div {
+          .col-float();
+        }
+      }
+    }
+  }
+}

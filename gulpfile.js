@@ -19,7 +19,7 @@ function clean() {
 }
 
 function styles() {
-  return gulp.src('./src/less/styles.less')
+  return gulp.src('./src/less/+(styles|styles-ie9).less')
          .pipe(gulpif(isDev, sourcemaps.init()))
          .pipe(less())
          .pipe(gcmq())
@@ -51,9 +51,9 @@ function watch() {
       }
   });
 
-  gulp.watch('./src/less/styles.less', styles);
+  gulp.watch('./src/less/*.less', styles);
   gulp.watch('./src/*.html', html);
-  gulp.watch('./smartgrid.js', series(grid, styles));
+  gulp.watch('./smartgrid.js', grid);
 }
 
 function grid(done) {
